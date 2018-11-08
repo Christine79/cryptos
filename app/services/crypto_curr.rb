@@ -17,19 +17,19 @@ class CryptoCurr
 #      puts Hash[crypto_name.zip(crypto_value)]
       pp Hash[array_name.zip(array_value)]
       kikihash = Hash[array_name.zip(array_value)]
-      kikihash.each do |k|
-          pp "voici: #{k}"
-          @crypto = Crypto.new(crypto_params)
-
-          respond_to do |format|
-            if @crypto.save
-              format.html { redirect_to @crypto, notice: 'crypto was successfully created.' }
-              format.json { render :show, status: :created, location: @crypto }
-            else
-              format.html { render :new }
-              format.json { render json: @crypto.errors, status: :unprocessable_entity }
-            end
-          end
+      kikihash.each do |k,j|
+          pp "voici: #{k} et le 2ème ha ha !! #{j}"
+          @crypto = Crypto.new([k][j.to_i])
+          @crypto.save
+#          respond_to do |format|
+#            if @crypto.save
+#              format.html { redirect_to @crypto, notice: 'crypto was successfully created.' }
+#              format.json { render :show, status: :created, location: @crypto }
+#            else
+#              format.html { render :new }
+#              format.json { render json: @crypto.errors, status: :unprocessable_entity }
+#            end
+#          end
 
       end
 
