@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2018_11_08_144744) do
   create_table "cryptos", force: :cascade do |t|
     t.string "name"
     t.integer "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

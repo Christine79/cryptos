@@ -5,8 +5,13 @@ class CryptoCurr
       @page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
 
       array_name=[]
+      i = 0
+
       @page.css("td.currency-name").each do |x|
+        if i < 2
        array_name << x["data-sort"]
+       end
+       i += 1
       end
       array_name
       array_value=[]
@@ -17,10 +22,13 @@ class CryptoCurr
 #      puts Hash[crypto_name.zip(crypto_value)]
       pp Hash[array_name.zip(array_value)]
       kikihash = Hash[array_name.zip(array_value)]
+      i = 0
       kikihash.each do |k,j|
-          pp "voici: #{k} et le 2ème ha ha !! #{j}"
+        if i < 2
+          pp "voici: *#{k}* et le 2ème ha ha !! ***#{j}***"
           @crypto = Crypto.new([k][j.to_i])
-          @crypto.save
+          @crypto.save(validate: false)
+          i += 1
 #          respond_to do |format|
 #            if @crypto.save
 #              format.html { redirect_to @crypto, notice: 'crypto was successfully created.' }
@@ -30,7 +38,7 @@ class CryptoCurr
 #              format.json { render json: @crypto.errors, status: :unprocessable_entity }
 #            end
 #          end
-
+end
       end
 
   end
