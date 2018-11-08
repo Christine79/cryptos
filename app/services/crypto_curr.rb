@@ -26,8 +26,10 @@ class CryptoCurr
       kikihash.each do |k,j|
         if i < 2
           pp "voici: *#{k}* et le 2ème ha ha !! ***#{j}***"
-          @crypto = Crypto.new([k][j.to_i])
-          @crypto.save(validate: false)
+          @crypto = Crypto.new(kikihash[k][j.to_i])
+
+
+          @crypto.save
           i += 1
 #          respond_to do |format|
 #            if @crypto.save

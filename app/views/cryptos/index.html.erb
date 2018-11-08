@@ -15,7 +15,7 @@
     <% @cryptos.each do |crypto| %>
       <tr>
         <td><%= crypto.name %></td>
-        <td><%= crypto.content %></td>
+        <td><%= crypto.value %></td>
         <td><%= link_to 'Show', crypto %></td>
         <td><%= link_to 'Edit', edit_crypto_path(crypto) %></td>
         <td><%= link_to 'Destroy', crypto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
