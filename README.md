@@ -1,3 +1,3 @@
 lien héroku de l'appli:
 
-     https://currencydekiki.herokuapp.com/statispahe/home
+     https://currencydekiki.herokuapp.com/staticpage/home
